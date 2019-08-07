@@ -1,0 +1,1118 @@
+experiment:
+  imaging:
+    binning: 4x4
+    fiddle: 1.0
+    fluor_to_frames:
+      DAPI: 0
+      GFP: 0
+      RFP: 0
+    fluors:
+    - RFP
+    - GFP
+    - DAPI
+    group_control_label: GFP
+    group_labels:
+    - TDP43(R151A)-mTagBFP3x
+    - TDP43(WT)-TDP(WT)-mTagBFP3x
+    - GFP-TDP(WT)-mTagBFP3x
+    - GFP-mTagBFP3x
+    - TDP43(F147L-F149L)-TDP(WT)-mTagBFP3x
+    - TDP43(D247A)-TDP(WT)-mTagBFP3x
+    - TDP43(D247A)-mTagBFP3x
+    - TDP43(R151A)-TDP(WT)-mTagBFP3x
+    - TDP43(WT)-mTagBFP3x
+    - TDP43(F147L-F149L)-mTagBFP3x
+    group_labels_to_wells:
+      GFP-TDP(WT)-mTagBFP3x:
+      - A07
+      - B07
+      - C07
+      - D07
+      - E07
+      - F07
+      - G07
+      - H07
+      GFP-mTagBFP3x:
+      - A02
+      - B02
+      - C02
+      - D02
+      - E02
+      - F02
+      - G02
+      - H02
+      TDP43(D247A)-TDP(WT)-mTagBFP3x:
+      - A11
+      - B11
+      - C11
+      - D11
+      - E11
+      - F11
+      - G11
+      - H11
+      TDP43(D247A)-mTagBFP3x:
+      - A06
+      - B06
+      - C06
+      - D06
+      - E06
+      - F06
+      - G06
+      - H06
+      TDP43(F147L-F149L)-TDP(WT)-mTagBFP3x:
+      - A09
+      - B09
+      - C09
+      - D09
+      - E09
+      - F09
+      - G09
+      - H09
+      TDP43(F147L-F149L)-mTagBFP3x:
+      - A04
+      - B04
+      - C04
+      - D04
+      - E04
+      - F04
+      - G04
+      - H04
+      TDP43(R151A)-TDP(WT)-mTagBFP3x:
+      - A10
+      - B10
+      - C10
+      - D10
+      - E10
+      - F10
+      - G10
+      - H10
+      TDP43(R151A)-mTagBFP3x:
+      - A05
+      - B05
+      - C05
+      - D05
+      - E05
+      - F05
+      - G05
+      - H05
+      TDP43(WT)-TDP(WT)-mTagBFP3x:
+      - A08
+      - B08
+      - C08
+      - D08
+      - E08
+      - F08
+      - G08
+      - H08
+      TDP43(WT)-mTagBFP3x:
+      - A03
+      - B03
+      - C03
+      - D03
+      - E03
+      - F03
+      - G03
+      - H03
+    magnification: 20
+    make_stacks: false
+    microscope: flo2
+    montage_num: '4'
+    primary_channel: RFP
+    tile_overlap: 10
+    wells:
+      A01:
+        dna1: NA
+        dna2: NA
+        drug1: NA
+        drug2: NA
+        label: ''
+      A02:
+        dna1: GFP
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: GFP-mTagBFP3x
+      A03:
+        dna1: TDP43(WT)
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(WT)-mTagBFP3x
+      A04:
+        dna1: TDP43(F147L-F149L)
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(F147L-F149L)-mTagBFP3x
+      A05:
+        dna1: TDP43(R151A)
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(R151A)-mTagBFP3x
+      A06:
+        dna1: TDP43(D247A)
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(D247A)-mTagBFP3x
+      A07:
+        dna1: GFP
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: GFP-TDP(WT)-mTagBFP3x
+      A08:
+        dna1: TDP43(WT)
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(WT)-TDP(WT)-mTagBFP3x
+      A09:
+        dna1: TDP43(F147L-F149L)
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(F147L-F149L)-TDP(WT)-mTagBFP3x
+      A10:
+        dna1: TDP43(R151A)
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(R151A)-TDP(WT)-mTagBFP3x
+      A11:
+        dna1: TDP43(D247A)
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(D247A)-TDP(WT)-mTagBFP3x
+      A12:
+        dna1: NA
+        dna2: NA
+        drug1: NA
+        drug2: NA
+        label: ''
+      B01:
+        dna1: NA
+        dna2: NA
+        drug1: NA
+        drug2: NA
+        label: ''
+      B02:
+        dna1: GFP
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: GFP-mTagBFP3x
+      B03:
+        dna1: TDP43(WT)
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(WT)-mTagBFP3x
+      B04:
+        dna1: TDP43(F147L-F149L)
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(F147L-F149L)-mTagBFP3x
+      B05:
+        dna1: TDP43(R151A)
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(R151A)-mTagBFP3x
+      B06:
+        dna1: TDP43(D247A)
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(D247A)-mTagBFP3x
+      B07:
+        dna1: GFP
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: GFP-TDP(WT)-mTagBFP3x
+      B08:
+        dna1: TDP43(WT)
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(WT)-TDP(WT)-mTagBFP3x
+      B09:
+        dna1: TDP43(F147L-F149L)
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(F147L-F149L)-TDP(WT)-mTagBFP3x
+      B10:
+        dna1: TDP43(R151A)
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(R151A)-TDP(WT)-mTagBFP3x
+      B11:
+        dna1: TDP43(D247A)
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(D247A)-TDP(WT)-mTagBFP3x
+      B12:
+        dna1: NA
+        dna2: NA
+        drug1: NA
+        drug2: NA
+        label: ''
+      C01:
+        dna1: NA
+        dna2: NA
+        drug1: NA
+        drug2: NA
+        label: ''
+      C02:
+        dna1: GFP
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: GFP-mTagBFP3x
+      C03:
+        dna1: TDP43(WT)
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(WT)-mTagBFP3x
+      C04:
+        dna1: TDP43(F147L-F149L)
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(F147L-F149L)-mTagBFP3x
+      C05:
+        dna1: TDP43(R151A)
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(R151A)-mTagBFP3x
+      C06:
+        dna1: TDP43(D247A)
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(D247A)-mTagBFP3x
+      C07:
+        dna1: GFP
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: GFP-TDP(WT)-mTagBFP3x
+      C08:
+        dna1: TDP43(WT)
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(WT)-TDP(WT)-mTagBFP3x
+      C09:
+        dna1: TDP43(F147L-F149L)
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(F147L-F149L)-TDP(WT)-mTagBFP3x
+      C10:
+        dna1: TDP43(R151A)
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(R151A)-TDP(WT)-mTagBFP3x
+      C11:
+        dna1: TDP43(D247A)
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(D247A)-TDP(WT)-mTagBFP3x
+      C12:
+        dna1: NA
+        dna2: NA
+        drug1: NA
+        drug2: NA
+        label: ''
+      D01:
+        dna1: NA
+        dna2: NA
+        drug1: NA
+        drug2: NA
+        label: ''
+      D02:
+        dna1: GFP
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: GFP-mTagBFP3x
+      D03:
+        dna1: TDP43(WT)
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(WT)-mTagBFP3x
+      D04:
+        dna1: TDP43(F147L-F149L)
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(F147L-F149L)-mTagBFP3x
+      D05:
+        dna1: TDP43(R151A)
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(R151A)-mTagBFP3x
+      D06:
+        dna1: TDP43(D247A)
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(D247A)-mTagBFP3x
+      D07:
+        dna1: GFP
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: GFP-TDP(WT)-mTagBFP3x
+      D08:
+        dna1: TDP43(WT)
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(WT)-TDP(WT)-mTagBFP3x
+      D09:
+        dna1: TDP43(F147L-F149L)
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(F147L-F149L)-TDP(WT)-mTagBFP3x
+      D10:
+        dna1: TDP43(R151A)
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(R151A)-TDP(WT)-mTagBFP3x
+      D11:
+        dna1: TDP43(D247A)
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(D247A)-TDP(WT)-mTagBFP3x
+      D12:
+        dna1: NA
+        dna2: NA
+        drug1: NA
+        drug2: NA
+        label: ''
+      E01:
+        dna1: NA
+        dna2: NA
+        drug1: NA
+        drug2: NA
+        label: ''
+      E02:
+        dna1: GFP
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: GFP-mTagBFP3x
+      E03:
+        dna1: TDP43(WT)
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(WT)-mTagBFP3x
+      E04:
+        dna1: TDP43(F147L-F149L)
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(F147L-F149L)-mTagBFP3x
+      E05:
+        dna1: TDP43(R151A)
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(R151A)-mTagBFP3x
+      E06:
+        dna1: TDP43(D247A)
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(D247A)-mTagBFP3x
+      E07:
+        dna1: GFP
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: GFP-TDP(WT)-mTagBFP3x
+      E08:
+        dna1: TDP43(WT)
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(WT)-TDP(WT)-mTagBFP3x
+      E09:
+        dna1: TDP43(F147L-F149L)
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(F147L-F149L)-TDP(WT)-mTagBFP3x
+      E10:
+        dna1: TDP43(R151A)
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(R151A)-TDP(WT)-mTagBFP3x
+      E11:
+        dna1: TDP43(D247A)
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(D247A)-TDP(WT)-mTagBFP3x
+      E12:
+        dna1: NA
+        dna2: NA
+        drug1: NA
+        drug2: NA
+        label: ''
+      F01:
+        dna1: NA
+        dna2: NA
+        drug1: NA
+        drug2: NA
+        label: ''
+      F02:
+        dna1: GFP
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: GFP-mTagBFP3x
+      F03:
+        dna1: TDP43(WT)
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(WT)-mTagBFP3x
+      F04:
+        dna1: TDP43(F147L-F149L)
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(F147L-F149L)-mTagBFP3x
+      F05:
+        dna1: TDP43(R151A)
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(R151A)-mTagBFP3x
+      F06:
+        dna1: TDP43(D247A)
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(D247A)-mTagBFP3x
+      F07:
+        dna1: GFP
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: GFP-TDP(WT)-mTagBFP3x
+      F08:
+        dna1: TDP43(WT)
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(WT)-TDP(WT)-mTagBFP3x
+      F09:
+        dna1: TDP43(F147L-F149L)
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(F147L-F149L)-TDP(WT)-mTagBFP3x
+      F10:
+        dna1: TDP43(R151A)
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(R151A)-TDP(WT)-mTagBFP3x
+      F11:
+        dna1: TDP43(D247A)
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(D247A)-TDP(WT)-mTagBFP3x
+      F12:
+        dna1: NA
+        dna2: NA
+        drug1: NA
+        drug2: NA
+        label: ''
+      G01:
+        dna1: NA
+        dna2: NA
+        drug1: NA
+        drug2: NA
+        label: ''
+      G02:
+        dna1: GFP
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: GFP-mTagBFP3x
+      G03:
+        dna1: TDP43(WT)
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(WT)-mTagBFP3x
+      G04:
+        dna1: TDP43(F147L-F149L)
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(F147L-F149L)-mTagBFP3x
+      G05:
+        dna1: TDP43(R151A)
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(R151A)-mTagBFP3x
+      G06:
+        dna1: TDP43(D247A)
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(D247A)-mTagBFP3x
+      G07:
+        dna1: GFP
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: GFP-TDP(WT)-mTagBFP3x
+      G08:
+        dna1: TDP43(WT)
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(WT)-TDP(WT)-mTagBFP3x
+      G09:
+        dna1: TDP43(F147L-F149L)
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(F147L-F149L)-TDP(WT)-mTagBFP3x
+      G10:
+        dna1: TDP43(R151A)
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(R151A)-TDP(WT)-mTagBFP3x
+      G11:
+        dna1: TDP43(D247A)
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(D247A)-TDP(WT)-mTagBFP3x
+      G12:
+        dna1: NA
+        dna2: NA
+        drug1: NA
+        drug2: NA
+        label: ''
+      H01:
+        dna1: NA
+        dna2: NA
+        drug1: NA
+        drug2: NA
+        label: ''
+      H02:
+        dna1: GFP
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: GFP-mTagBFP3x
+      H03:
+        dna1: TDP43(WT)
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(WT)-mTagBFP3x
+      H04:
+        dna1: TDP43(F147L-F149L)
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(F147L-F149L)-mTagBFP3x
+      H05:
+        dna1: TDP43(R151A)
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(R151A)-mTagBFP3x
+      H06:
+        dna1: TDP43(D247A)
+        dna2: mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(D247A)-mTagBFP3x
+      H07:
+        dna1: GFP
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: GFP-TDP(WT)-mTagBFP3x
+      H08:
+        dna1: TDP43(WT)
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(WT)-TDP(WT)-mTagBFP3x
+      H09:
+        dna1: TDP43(F147L-F149L)
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(F147L-F149L)-TDP(WT)-mTagBFP3x
+      H10:
+        dna1: TDP43(R151A)
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(R151A)-TDP(WT)-mTagBFP3x
+      H11:
+        dna1: TDP43(D247A)
+        dna2: TDP(WT)-mTagBFP3x
+        drug1: NA
+        drug2: NA
+        label: TDP43(D247A)-TDP(WT)-mTagBFP3x
+      H12:
+        dna1: NA
+        dna2: NA
+        drug1: NA
+        drug2: NA
+        label: ''
+  name: BF219
+  setup:
+    plate: 96w
+  text_notification: 2197890469@vtext.com
+  time_data:
+    hours:
+    - '24'
+    - '47'
+    - '71'
+    - '107'
+    - '131'
+    - '143'
+    - '167'
+    - '191'
+    - '215'
+    - '239'
+    timepoint_num: 10
+    timepoints:
+    - 1 24 8/29/2018
+    - 2 47 8/30/2018
+    - 3 71 8/31/2018
+    - 4 107 9/1/2018
+    - 5 131 9/2/2018
+    - 6 143 9/3/2018
+    - 7 167 9/4/2018
+    - 8 191 9/5/2018
+    - 9 215 9/6/2018
+    - 10 239 9/7/2018
+    transfection:
+      day: 8/28/2018
+      time: 9:00 AM
+  well-data:
+    well-to-cell-type:
+      A01: cortical
+      A02: cortical
+      A03: cortical
+      A04: cortical
+      A05: cortical
+      A06: cortical
+      A07: cortical
+      A08: cortical
+      A09: cortical
+      A10: cortical
+      A11: cortical
+      A12: cortical
+      B01: cortical
+      B02: cortical
+      B03: cortical
+      B04: cortical
+      B05: cortical
+      B06: cortical
+      B07: cortical
+      B08: cortical
+      B09: cortical
+      B10: cortical
+      B11: cortical
+      B12: cortical
+      C01: cortical
+      C02: cortical
+      C03: cortical
+      C04: cortical
+      C05: cortical
+      C06: cortical
+      C07: cortical
+      C08: cortical
+      C09: cortical
+      C10: cortical
+      C11: cortical
+      C12: cortical
+      D01: cortical
+      D02: cortical
+      D03: cortical
+      D04: cortical
+      D05: cortical
+      D06: cortical
+      D07: cortical
+      D08: cortical
+      D09: cortical
+      D10: cortical
+      D11: cortical
+      D12: cortical
+      E01: cortical
+      E02: cortical
+      E03: cortical
+      E04: cortical
+      E05: cortical
+      E06: cortical
+      E07: cortical
+      E08: cortical
+      E09: cortical
+      E10: cortical
+      E11: cortical
+      E12: cortical
+      F01: cortical
+      F02: cortical
+      F03: cortical
+      F04: cortical
+      F05: cortical
+      F06: cortical
+      F07: cortical
+      F08: cortical
+      F09: cortical
+      F10: cortical
+      F11: cortical
+      F12: cortical
+      G01: cortical
+      G02: cortical
+      G03: cortical
+      G04: cortical
+      G05: cortical
+      G06: cortical
+      G07: cortical
+      G08: cortical
+      G09: cortical
+      G10: cortical
+      G11: cortical
+      G12: cortical
+      H01: cortical
+      H02: cortical
+      H03: cortical
+      H04: cortical
+      H05: cortical
+      H06: cortical
+      H07: cortical
+      H08: cortical
+      H09: cortical
+      H10: cortical
+      H11: cortical
+      H12: cortical
+    well-to-drug:
+      A01: NA
+      A02: NA
+      A03: NA
+      A04: NA
+      A05: NA
+      A06: NA
+      A07: NA
+      A08: NA
+      A09: NA
+      A10: NA
+      A11: NA
+      A12: NA
+      B01: NA
+      B02: NA
+      B03: NA
+      B04: NA
+      B05: NA
+      B06: NA
+      B07: NA
+      B08: NA
+      B09: NA
+      B10: NA
+      B11: NA
+      B12: NA
+      C01: NA
+      C02: NA
+      C03: NA
+      C04: NA
+      C05: NA
+      C06: NA
+      C07: NA
+      C08: NA
+      C09: NA
+      C10: NA
+      C11: NA
+      C12: NA
+      D01: NA
+      D02: NA
+      D03: NA
+      D04: NA
+      D05: NA
+      D06: NA
+      D07: NA
+      D08: NA
+      D09: NA
+      D10: NA
+      D11: NA
+      D12: NA
+      E01: NA
+      E02: NA
+      E03: NA
+      E04: NA
+      E05: NA
+      E06: NA
+      E07: NA
+      E08: NA
+      E09: NA
+      E10: NA
+      E11: NA
+      E12: NA
+      F01: NA
+      F02: NA
+      F03: NA
+      F04: NA
+      F05: NA
+      F06: NA
+      F07: NA
+      F08: NA
+      F09: NA
+      F10: NA
+      F11: NA
+      F12: NA
+      G01: NA
+      G02: NA
+      G03: NA
+      G04: NA
+      G05: NA
+      G06: NA
+      G07: NA
+      G08: NA
+      G09: NA
+      G10: NA
+      G11: NA
+      G12: NA
+      H01: NA
+      H02: NA
+      H03: NA
+      H04: NA
+      H05: NA
+      H06: NA
+      H07: NA
+      H08: NA
+      H09: NA
+      H10: NA
+      H11: NA
+      H12: NA
+    well-to-drug-conc:
+      A01: NA
+      A02: NA
+      A03: NA
+      A04: NA
+      A05: NA
+      A06: NA
+      A07: NA
+      A08: NA
+      A09: NA
+      A10: NA
+      A11: NA
+      A12: NA
+      B01: NA
+      B02: NA
+      B03: NA
+      B04: NA
+      B05: NA
+      B06: NA
+      B07: NA
+      B08: NA
+      B09: NA
+      B10: NA
+      B11: NA
+      B12: NA
+      C01: NA
+      C02: NA
+      C03: NA
+      C04: NA
+      C05: NA
+      C06: NA
+      C07: NA
+      C08: NA
+      C09: NA
+      C10: NA
+      C11: NA
+      C12: NA
+      D01: NA
+      D02: NA
+      D03: NA
+      D04: NA
+      D05: NA
+      D06: NA
+      D07: NA
+      D08: NA
+      D09: NA
+      D10: NA
+      D11: NA
+      D12: NA
+      E01: NA
+      E02: NA
+      E03: NA
+      E04: NA
+      E05: NA
+      E06: NA
+      E07: NA
+      E08: NA
+      E09: NA
+      E10: NA
+      E11: NA
+      E12: NA
+      F01: NA
+      F02: NA
+      F03: NA
+      F04: NA
+      F05: NA
+      F06: NA
+      F07: NA
+      F08: NA
+      F09: NA
+      F10: NA
+      F11: NA
+      F12: NA
+      G01: NA
+      G02: NA
+      G03: NA
+      G04: NA
+      G05: NA
+      G06: NA
+      G07: NA
+      G08: NA
+      G09: NA
+      G10: NA
+      G11: NA
+      G12: NA
+      H01: NA
+      H02: NA
+      H03: NA
+      H04: NA
+      H05: NA
+      H06: NA
+      H07: NA
+      H08: NA
+      H09: NA
+      H10: NA
+      H11: NA
+      H12: NA
+    well-to-drug-conc-units:
+      A01: NA
+      A02: NA
+      A03: NA
+      A04: NA
+      A05: NA
+      A06: NA
+      A07: NA
+      A08: NA
+      A09: NA
+      A10: NA
+      A11: NA
+      A12: NA
+      B01: NA
+      B02: NA
+      B03: NA
+      B04: NA
+      B05: NA
+      B06: NA
+      B07: NA
+      B08: NA
+      B09: NA
+      B10: NA
+      B11: NA
+      B12: NA
+      C01: NA
+      C02: NA
+      C03: NA
+      C04: NA
+      C05: NA
+      C06: NA
+      C07: NA
+      C08: NA
+      C09: NA
+      C10: NA
+      C11: NA
+      C12: NA
+      D01: NA
+      D02: NA
+      D03: NA
+      D04: NA
+      D05: NA
+      D06: NA
+      D07: NA
+      D08: NA
+      D09: NA
+      D10: NA
+      D11: NA
+      D12: NA
+      E01: NA
+      E02: NA
+      E03: NA
+      E04: NA
+      E05: NA
+      E06: NA
+      E07: NA
+      E08: NA
+      E09: NA
+      E10: NA
+      E11: NA
+      E12: NA
+      F01: NA
+      F02: NA
+      F03: NA
+      F04: NA
+      F05: NA
+      F06: NA
+      F07: NA
+      F08: NA
+      F09: NA
+      F10: NA
+      F11: NA
+      F12: NA
+      G01: NA
+      G02: NA
+      G03: NA
+      G04: NA
+      G05: NA
+      G06: NA
+      G07: NA
+      G08: NA
+      G09: NA
+      G10: NA
+      G11: NA
+      G12: NA
+      H01: NA
+      H02: NA
+      H03: NA
+      H04: NA
+      H05: NA
+      H06: NA
+      H07: NA
+      H08: NA
+      H09: NA
+      H10: NA
+      H11: NA
+      H12: NA

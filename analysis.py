@@ -1,50 +1,34 @@
+from analyses.automated_survival.objects import Neuron, ROI
+from analyses.automated_survival.output import Exporter
 from collections import defaultdict
 from glob import glob
-import itertools
-import os 
+from imgutils import transforms
+from imgutils.tifffile import imread, imsave
+from math import isinf
 from os.path import join
-import subprocess
-
-import cv2
-import numpy as np
-
-#Create log to ensure that only images that have not been analyzed are analyzed
-from skimage import measure
-import scipy.ndimage
 from scipy.ndimage import generate_binary_structure
 from scipy.ndimage import measurements, morphology
 from scipy.ndimage.filters import median_filter 
-import skimage.morphology
-import skimage.filters
-
-import multiprocess 
-
-import fileutils
-from imgutils import transforms
-from imgutils.tifffile import imread, imsave
-import mfileutils.makeconfig
-
-import annotate
-from analyses.automated_survival.objects import Neuron, ROI
-import analyses.automated_survival.utils as utils
-from analyses.automated_survival.output import Exporter
-
-from ImageLogger import ImageLogger
-
-import matplotlib.pyplot as plt
-
 from scipy.spatial import KDTree
-from math import isinf
-
-from sklearn.mixture import GaussianMixture, BayesianGaussianMixture
-
-def f(img):
-    plt.imshow(img)
-    plt.show()
+from skimage import measure
+import analyses.automated_survival.utils as utils
+import annotate
+import cv2
+import fileutils
+import itertools
+import matplotlib.pyplot as plt
+import mfileutils.makeconfig
+import multiprocess 
+import numpy as np
+import os 
+import scipy.ndimage
+import skimage.filters
+import skimage.morphology
+import subprocess
 
 class Tracker():
+    '''Handles segmenting and tracking ROIs through stacked (3D TIFF files) images.'''
     def __init__(self, exp_name, outdir, threshold_multiplier, magnification, microscope, binning):
-        self.image_logger = ImageLogger(join(outdir, 'image-logs'), disable=True)
         self.exp_name = exp_name
         self.binned = False if binning[0] == '1' else True
         self.outdir = outdir
@@ -60,7 +44,6 @@ class Tracker():
         return measurements.find_objects(labeled_img)
 
     def _remove_overlapping_slices(self, slices, img):
-        ''' Remove overlapping slices'''
         # Sort slices by size so that small slices mostly overlapping larger ones are detected upon entry into bit array.
         area_of_2D_slice = lambda s: (s[0].stop - s[0].start) * (s[1].stop - s[1].start)
         slices = sorted(slices, key=area_of_2D_slice, reverse=True)
@@ -81,13 +64,11 @@ class Tracker():
         return slices
 
     def _threshold(self, img):
-        # Threshold, parameterized through use of a multiplier.
+        '''Threshold an image. Parameterized through use of a multiplier.'''
         img[img < np.mean(img) + self.threshold_multiplier * np.std(img)] = 0
 
     def _process_img(self, img):
-        '''Process image.'''
         img = np.copy(img)
-        self.image_logger.log('find-somas', 'original', img)
 
         self._threshold(img)
 
@@ -95,7 +76,6 @@ class Tracker():
         disk = skimage.morphology.disk(2)
         # Use minimum filter in place.
         img = scipy.ndimage.filters.minimum_filter(img, footprint=disk)
-        self.image_logger.log('find-somas', 'min-filter', img, box=True)
 
         # To further separate ROIs, use erosion to eliminate noise and processes.
         erode_kernel_dim = self.um_to_px(3)
@@ -104,7 +84,6 @@ class Tracker():
 
         # Use eroded image as mask to select pixels in original image.
         img[eroded == 0] = 0
-        self.image_logger.log('find-somas', 'erode', img, box=True)
 
         rimg = skimage.filters.roberts(img)
         #Values will be between 0 and 1 now; scale and set to 16-bit
@@ -114,33 +93,27 @@ class Tracker():
         sobx = cv2.Sobel(img, cv2.CV_64F, 1, 0, ksize=3, scale=1)
         soby = cv2.Sobel(img, cv2.CV_64F, 0, 1, ksize=3, scale=1)
         img = np.hypot(sobx, soby).astype(np.uint16)
-        self.image_logger.log('find-somas', 'rob+sobel', img, box=True)
 
         img = (img.astype(np.uint32) + rimg.astype(np.uint32))
         np.clip(img, 0, 2 ** 16 - 1, out=img)
         img = img.astype(np.uint16)
-        self.image_logger.log('find-somas', 'clip', img, box=True)
 
         utils.nonzero_percentile_threshold(img, 40)
         if not self.binned:
             # Use minimum filter in place.
             img = scipy.ndimage.filters.minimum_filter(img, size=(2,2))
-        else:
-            self.image_logger.log('find-somas', 'threshold-2', img, box=True)
 
         return img
 
     def _find_graded_somas(self, img):
-
+        '''Identify somas from the gradient of images.'''
         img = self._process_img(img)
 
         slices = self._label_and_slice(img)
-        self.image_logger.log('find-somas', 'post-labeling', img, slices=slices)
 
         # Remove slices under size threshold.
         px = self.um_to_px(5)
         slices = list(filter(lambda s: (s[0].stop - s[0].start) * (s[1].stop - s[1].start) > px ** 2, slices))
-        self.image_logger.log('find-somas', 'size-thresholding', img, slices=slices)
 
         # After identifying the first batch of slices, run a tophat transform on each, and redo.
         tophat_kernel_dim = self.um_to_px(40)
@@ -167,29 +140,14 @@ class Tracker():
                 # Scale subimg, which is currently binary, to a very high (arbitrary) value.
                 subimg = subimg.astype(np.uint16) * (2 ** 14)
                 img[s] = subimg
-                #f(subimg)
-                #print(subimg)
-                #print(subimg.dtype)
-                #print(subimg.shape)
-                #utils.nonzero_percentile_threshold(subimg, 50)
-
-                #subimg = morphology.grey_erosion(subimg, structure=erode_kernel)
-                #subimg = cv2.erode(subimg, erode_kernel, iterations=2)
-                #subimg = cv2.dilate(subimg, erode_kernel, iterations=2)
-
-                #img[s] = subimg
-                #f(img[s])
 
         slices = self._label_and_slice(img)
-        self.image_logger.log('find-somas', 'erode', img, slices=slices)
 
         # Remove slices under size threshold.
         px = self.um_to_px(3)
         slices = list(filter(lambda s: (s[0].stop - s[0].start) * (s[1].stop - s[1].start) > px ** 2, slices))
-        self.image_logger.log('find-somas', 'size-thresholding2', img, slices=slices)
 
         slices = self._remove_overlapping_slices(slices, img) # This function sorts slices by area.
-        self.image_logger.log('find-somas', 'remove-overlappers', img, slices=slices)
 
         return slices
 
@@ -248,34 +206,8 @@ class Tracker():
 
     def _find_candidates(self, img):
         graded_slices = self._find_graded_somas(img)
-
         centroid_estimates = self._estimate_centroids(graded_slices)
-
         expanded_slices = self._expand_slices(img, graded_slices)
-        self.image_logger.log('expand-slices', 'expand', img, slices=expanded_slices)
-
-        # For every slice, expand further and check out the hough transform circle count.
-        '''
-        px_expan = self.um_to_px(10)
-        for ix, s in enumerate(expanded_slices):
-            y_s, x_s = s[0], s[1]
-            y_start, y_stop = y_s.start, y_s.stop
-            x_start, x_stop = x_s.start, x_s.stop
-            subimg = img[max(0, y_start - px_expan):min(img.shape[0], y_stop + px_expan),    
-                         max(0, x_start - px_expan):min(img.shape[1], x_stop + px_expan)]    
-
-            utils.nonzero_percentile_threshold(subimg, 70)
-
-            f(subimg)
-            # 1D GMM.
-            X = subimg[subimg !=0 ].reshape(-1, 1)
-            gmm = BayesianGaussianMixture(n_components=10)
-            gmm.fit(X)
-            gpred_1d = gmm.predict(subimg.reshape(-1, 1)).reshape(subimg.shape).astype(np.uint8)
-
-            f(gpred_1d)
-        '''
-
         self._threshold(img)
 
         # Begin processing image and building candidate neurons.
@@ -302,9 +234,6 @@ class Tracker():
 
             for contour in contours:
                 candidates.append((centroid_estimates[ix], contour))
-
-        try: self.image_logger.log('filtration', 'size-and-circularity', img, contours=list(zip(*candidates))[1])
-        except IndexError: self.image_logger.log('filtration', 'size-and-circularity', img)
 
         return candidates
 
@@ -358,32 +287,6 @@ class Tracker():
 
         unassigned_candidates = self._extend_roi_series(img, timepoint, living_neurons, ID_to_candidate)
 
-
-
-        '''
-        for ix, centroid in enumerate(centroids):
-            #Function to compute Euclidean distance between a candidate neuron and an existing neuron from previous timepoint
-            compute_dist = lambda _centroid: np.linalg.norm(centroid - _centroid)
-
-            #Make list of tuples: (ID, distance)
-            dists = [(neuron.ID, compute_dist(neuron.roi_series[-1].centroid)) for neuron in living_neurons]
-
-            #Add distances of previously unassigned neurons, with a sentinel ID of -1
-            dists += [(-1, compute_dist(cent)) for centroid, cent in self.unassigned_rois]
-
-            #Choose tuple with minimum distance (closest neuron)
-            neuron_ID, min_dist = min(dists, key=lambda x: x[1])
-
-            #If the closest roi is a previously unassigned roi, continue to next ROI, as this candidate is likely not an existing neuron
-            if neuron_ID == -1:
-                continue
-
-            #Map neuron to candidate index with minimum distance if distance if it is closer than current selection
-            #10000 selected arbitrarily as an infeasibly large distance
-            if neuron_to_cand_ix.get(neuron_ID, (None, 10000))[1] > min_dist:
-                neuron_to_cand_ix[neuron_ID] = (ix, min_dist)
-        '''
-
         # Set unassigned rois from this timepoint for continued tracking.
         self.unassigned_rois = filter(lambda c: c in unassigned_candidates, candidates)
 
@@ -435,17 +338,12 @@ class Tracker():
         '''Track neurons.'''
         well, stack, crop_val = data
 
-        # Setup image logger to log images for this well.
-        self.image_logger.set_image_name(well)
-
         orig_stack = np.copy(stack)
         print(self.exp_name + ':: Automated Survival Analysis: T' + str(1) + '-' + well)
 
         #Crop stack edges as borders will be zero if images were shifted during stack registration
         stack = stack[:, crop_val:-crop_val, crop_val:-crop_val]
 
-        # Set the first timepoint for image logger. 
-        self.image_logger.set_timepoint(1)
         neurons = self._find_initial_candidates(stack[0])
         
         #If any neurons were found, then iterate through remaining timepoints and track survival
@@ -453,8 +351,6 @@ class Tracker():
             #Variable will be used to track potentially viable ROIs that remained unassigned to avoid mistaken future assignments
             self.unassigned_rois = []
             for timepoint, img in enumerate(stack[1:], start=1):
-                # Set timepoint for image logger. Add one as indices are zero-based.
-                self.image_logger.set_timepoint(timepoint+1)
 
                 print(self.exp_name + ':: Automated Survival Analysis: T' + str(timepoint + 1) + '-' + well)
 
@@ -591,7 +487,7 @@ class SurvivalAnalyzer:
         run_cox_analysis(self.config, self.outdir)
 
 if __name__ == '__main__':
-    workdir = r'f:/experiments/m6a2'
+    workdir = os.path.abspath('example-data')
     multiprocess.freeze_support()
     analyzer = SurvivalAnalyzer(workdir)
     analyzer.analyze(1.5)
