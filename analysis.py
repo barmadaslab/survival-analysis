@@ -487,7 +487,7 @@ class SurvivalAnalyzer:
         run_cox_analysis(self.config, self.outdir)
 
 if __name__ == '__main__':
-    workdir = os.path.abspath('example-data')
+    workdir = os.path.abspath('_example-data')
     multiprocess.freeze_support()
     analyzer = SurvivalAnalyzer(workdir)
     analyzer.analyze(1.5)

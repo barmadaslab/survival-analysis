@@ -12,16 +12,16 @@ experiment:
     - DAPI
     group_control_label: GFP
     group_labels:
-    - TDP43(R151A)-mTagBFP3x
     - TDP43(WT)-TDP(WT)-mTagBFP3x
+    - TDP43(R151A)-mTagBFP3x
     - GFP-TDP(WT)-mTagBFP3x
-    - GFP-mTagBFP3x
-    - TDP43(F147L-F149L)-TDP(WT)-mTagBFP3x
-    - TDP43(D247A)-TDP(WT)-mTagBFP3x
     - TDP43(D247A)-mTagBFP3x
-    - TDP43(R151A)-TDP(WT)-mTagBFP3x
     - TDP43(WT)-mTagBFP3x
+    - TDP43(R151A)-TDP(WT)-mTagBFP3x
     - TDP43(F147L-F149L)-mTagBFP3x
+    - TDP43(F147L-F149L)-TDP(WT)-mTagBFP3x
+    - GFP-mTagBFP3x
+    - TDP43(D247A)-TDP(WT)-mTagBFP3x
     group_labels_to_wells:
       GFP-TDP(WT)-mTagBFP3x:
       - A07
@@ -696,10 +696,10 @@ experiment:
         drug1: NA
         drug2: NA
         label: ''
-  name: BF219
+  name: ExampleExperiment
   setup:
     plate: 96w
-  text_notification: 2197890469@vtext.com
+  text_notification: 5551234567@vtext.com
   time_data:
     hours:
     - '24'

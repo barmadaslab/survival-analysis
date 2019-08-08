@@ -1,10 +1,9 @@
-import os
+from imgutils import transforms
 from os.path import join
 import cv2
-import numpy as np
-
 import fileutils
-from imgutils import transforms
+import numpy as np
+import os
 
 def compute_centroid(contour):
     m = cv2.moments(contour)

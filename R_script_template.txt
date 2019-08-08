@@ -1,0 +1,65 @@
+#Load survival library
+library(survival)
+
+#Clear current environment
+rm(list=ls())
+
+workdir = "WORKDIR"
+fname = "FILENAME"
+expname = "EXPNAME"
+groups = c(DOUBLE_QUOTED_COMMA_DELIMITED_GROUPS)
+colors = c(DOUBLE_QUOTED_COMMA_DELIMITED_COLORS)
+
+#Attempt to load workspace
+tryCatch(load(paste(expname, "RData", sep=".")), warning=function(e){invisible(e)})
+
+#Set working directory
+setwd(workdir)
+#Read in output file
+df <- read.csv(fname, header=TRUE)
+
+#Rearrange groups left to right by plate layout
+df$group <- factor(df$group, levels=as.character(unique(df[order(df$column),]$group)))
+
+#To manually rearrange your groups delete the #s in the next two lines and assign group order in next line
+#groups = c('control', 'DMSO','2uM')
+#df$group <- factor(df$group, levels=groups)
+
+#Appends the sample size (n) to each group
+ballislife<-levels(factor(df$group))
+sample_size<-as.character(summary(df$group))
+groups_with_n<-paste0(ballislife," (n=",sample_size,")")
+
+#Cox hazard analysis
+coxfit <- coxph(Surv(last_time, as.logical(censored)) ~ group, data=df)
+#Output Cox hazards analysis
+capture.output(summary(coxfit), file = paste(expname,"Cox Hazard.txt"))
+summary(coxfit)
+
+#Cox hazards analysis
+coxfit <- coxph(Surv(last_time, as.logical(censored)) ~ group, data=df)
+
+#Log-rank test
+lrtest <- survdiff(Surv(last_time, as.logical(censored)) ~ group, data=df, rho=0)
+lrtest
+
+#Testing proportional hazards assumption for Cox regression model fit
+cox.zph(coxfit)
+
+#Plot and output Cox hazard results
+fname = paste(expname, "hazard_plot.pdf", sep="_")
+pdf(file=fname, width=10)
+coxfit <- coxph(Surv(last_time, as.logical(censored)) ~ strata(group), data=df)
+title = paste(expname, " Cumulative Hazards")
+plot(survfit(coxfit), fun="cumhaz", main=title, xlab="Time (hr)",
+     ylab="Cumulative risk of death", col=colors, lwd=5)
+legend("topleft", legend=groups_with_n, col=colors, lwd=2, cex=.8)
+dev.off()
+
+#Plot for user
+#plot(survfit(coxfit), fun="cumhaz", main=title, xlab="Time (hr)",
+#     ylab="Cumulative risk of death", col=colors, lwd=5)
+#legend("topleft", legend=groups, col=colors, lty=c(2), cex=.8)
+
+#Save workspace
+save.image(file=paste(expname, "RData", sep="."))
