@@ -34,7 +34,7 @@ def parse_mfile(indir):
 
     stream = homogenize_comma_quantity(path)
 
-    #acquire parameters
+    # Acquire parameters.
     exp_df = pd.read_csv(stream, nrows=2, error_bad_lines=False, warn_bad_lines=False, low_memory=False).fillna('NA')
     # Ensure stream can be re-read.
     stream.seek(0)
@@ -61,7 +61,6 @@ def _parse_time(img_df):
     return time_data, timepoint_num, hours
 
 def _parse_fluors(img_df):
-    #Must ensure that list of fluors remains in an order corresponding to 
     generic_labels = 'fp1 fp2 fp3 fp4'.split()
     fluor_dict = {}
     for label in generic_labels:
@@ -86,11 +85,11 @@ def _parse_fluor_to_frames(exp_df, fluor_dict):
     return fluor_to_frames
 
 def mfile_to_config(indir, outdir=None):
-    #acquire dataframes with experiment and image parameters
+    # Acquire dataframes with experiment and image parameters.
     exp_df, img_df = parse_mfile(indir)
-    #acquire parameters
+
     montage_num = str(int(exp_df['montage xy'].loc[0]))
-    #Expecting a value like: 20x or 4x -- an 'x' character always affixed to a number
+    # Expecting a value like: 20x or 4x -- an 'x' character always affixed to a number.
     magnification = int(exp_df['objective'].loc[0][:-1])
 
     try: 
@@ -137,7 +136,7 @@ def mfile_to_config(indir, outdir=None):
         fiddle = 1.0
 
 
-    #A large amount of zeros have been appended to the time column. This is causing Pandas to select rows up until 31k+.
+    # A large amount of zeros have been appended to the time column. This is causing Pandas to select rows up until 31k+.
     #The zeros are presently necessary for Micromanager Java code data/time of experiment completion output, but not 
     #otherwise. Therefore will send the full DataFrame for parsing time data, but will limit it thereafter to ensure these
     #superfluous rows are not carried around.
@@ -146,13 +145,12 @@ def mfile_to_config(indir, outdir=None):
     fluor_dict = _parse_fluors(img_df)
     fluor_to_frames = _parse_fluor_to_frames(exp_df, fluor_dict)
 
-    #Determine whether varying drug concentrations exist for administered drugs
+    # Determine whether varying drug concentrations exist for administered drugs
     varying_drug1_conc = True if len(set([value for value in img_df['[drug1]'].values if value != 'NA'])) > 1 else False
     varying_drug2_conc = True if len(set([value for value in img_df['[drug2]'].values if value != 'NA'])) > 1 else False
 
-    #Build mapping between wells and values describing actions done to wells
+    #B uild mapping between wells and values describing actions done to wells
     wells_dict = {}
-    #value_list = ['dna1', 'dna2', 'drug1', 'drug2', '[drug1]', '[drug2]']
     value_list = ['dna1', 'dna2', 'drug1', 'drug2']
     group_labels = set()
 
@@ -200,7 +198,7 @@ def mfile_to_config(indir, outdir=None):
     from imgutils import transforms
     um_to_px = transforms.microns_to_pixels(1, magnification, microscope, binning)
 
-    #Construct dict for YAML file
+    # Construct dict for YAML file.
     config = {'experiment' :
                 {'name' : exp_df.iloc[0][0],
                  'text_notification' : exp_df.email.loc[0],
@@ -236,13 +234,3 @@ def mfile_to_config(indir, outdir=None):
     if outdir != None:
         yaml.dump(config, open(join(outdir, 'config.yaml'), 'w'), default_flow_style=False)
     return config
-
-if __name__ == '__main__':
-    from glob import glob
-    fpath = '.'
-    fpath = 'f:/experiments/sw6'
-    #fpath = glob('*.csv')[0]
-    config = mfile_to_config(fpath)
-    print(config)
-    print(config['experiment']['imaging']['binning'])
-    print(config['experiment']['imaging']['fluors'])

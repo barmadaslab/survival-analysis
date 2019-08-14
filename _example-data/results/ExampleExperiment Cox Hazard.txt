@@ -1,0 +1,22 @@
+Call:
+coxph(formula = Surv(last_time, as.logical(censored)) ~ group, 
+    data = df)
+
+  n= 268, number of events= 209 
+
+                  coef exp(coef) se(coef)     z Pr(>|z|)
+groupsome-dna2 0.05663   1.05827  0.19110 0.296    0.767
+groupsome-dna3 0.22450   1.25170  0.19360 1.160    0.246
+groupsome-dna4 0.06120   1.06311  0.20492 0.299    0.765
+
+               exp(coef) exp(-coef) lower .95 upper .95
+groupsome-dna2     1.058     0.9449    0.7277     1.539
+groupsome-dna3     1.252     0.7989    0.8565     1.829
+groupsome-dna4     1.063     0.9406    0.7115     1.589
+
+Concordance= 0.537  (se = 0.028 )
+Rsquare= 0.005   (max possible= 1 )
+Likelihood ratio test= 1.48  on 3 df,   p=0.6874
+Wald test            = 1.51  on 3 df,   p=0.6794
+Score (logrank) test = 1.52  on 3 df,   p=0.6783
+

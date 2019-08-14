@@ -10,109 +10,21 @@ experiment:
     - RFP
     - GFP
     - DAPI
-    group_control_label: GFP
+    group_control_label: some-dna1
     group_labels:
-    - TDP43(WT)-TDP(WT)-mTagBFP3x
-    - TDP43(R151A)-mTagBFP3x
-    - GFP-TDP(WT)-mTagBFP3x
-    - TDP43(D247A)-mTagBFP3x
-    - TDP43(WT)-mTagBFP3x
-    - TDP43(R151A)-TDP(WT)-mTagBFP3x
-    - TDP43(F147L-F149L)-mTagBFP3x
-    - TDP43(F147L-F149L)-TDP(WT)-mTagBFP3x
-    - GFP-mTagBFP3x
-    - TDP43(D247A)-TDP(WT)-mTagBFP3x
+    - some-dna4
+    - some-dna1
+    - some-dna3
+    - some-dna2
     group_labels_to_wells:
-      GFP-TDP(WT)-mTagBFP3x:
-      - A07
-      - B07
-      - C07
-      - D07
-      - E07
-      - F07
-      - G07
-      - H07
-      GFP-mTagBFP3x:
+      some-dna1:
+      - A01
+      some-dna2:
       - A02
-      - B02
-      - C02
-      - D02
-      - E02
-      - F02
-      - G02
-      - H02
-      TDP43(D247A)-TDP(WT)-mTagBFP3x:
-      - A11
-      - B11
-      - C11
-      - D11
-      - E11
-      - F11
-      - G11
-      - H11
-      TDP43(D247A)-mTagBFP3x:
-      - A06
-      - B06
-      - C06
-      - D06
-      - E06
-      - F06
-      - G06
-      - H06
-      TDP43(F147L-F149L)-TDP(WT)-mTagBFP3x:
-      - A09
-      - B09
-      - C09
-      - D09
-      - E09
-      - F09
-      - G09
-      - H09
-      TDP43(F147L-F149L)-mTagBFP3x:
-      - A04
-      - B04
-      - C04
-      - D04
-      - E04
-      - F04
-      - G04
-      - H04
-      TDP43(R151A)-TDP(WT)-mTagBFP3x:
-      - A10
-      - B10
-      - C10
-      - D10
-      - E10
-      - F10
-      - G10
-      - H10
-      TDP43(R151A)-mTagBFP3x:
-      - A05
-      - B05
-      - C05
-      - D05
-      - E05
-      - F05
-      - G05
-      - H05
-      TDP43(WT)-TDP(WT)-mTagBFP3x:
-      - A08
-      - B08
-      - C08
-      - D08
-      - E08
-      - F08
-      - G08
-      - H08
-      TDP43(WT)-mTagBFP3x:
+      some-dna3:
       - A03
-      - B03
-      - C03
-      - D03
-      - E03
-      - F03
-      - G03
-      - H03
+      some-dna4:
+      - A04
     magnification: 20
     make_stacks: false
     microscope: flo2
@@ -121,71 +33,71 @@ experiment:
     tile_overlap: 10
     wells:
       A01:
+        dna1: some-dna1
+        dna2: NA
+        drug1: NA
+        drug2: NA
+        label: some-dna1
+      A02:
+        dna1: some-dna2
+        dna2: NA
+        drug1: NA
+        drug2: NA
+        label: some-dna2
+      A03:
+        dna1: some-dna3
+        dna2: NA
+        drug1: NA
+        drug2: NA
+        label: some-dna3
+      A04:
+        dna1: some-dna4
+        dna2: NA
+        drug1: NA
+        drug2: NA
+        label: some-dna4
+      A05:
         dna1: NA
         dna2: NA
         drug1: NA
         drug2: NA
         label: ''
-      A02:
-        dna1: GFP
-        dna2: mTagBFP3x
-        drug1: NA
-        drug2: NA
-        label: GFP-mTagBFP3x
-      A03:
-        dna1: TDP43(WT)
-        dna2: mTagBFP3x
-        drug1: NA
-        drug2: NA
-        label: TDP43(WT)-mTagBFP3x
-      A04:
-        dna1: TDP43(F147L-F149L)
-        dna2: mTagBFP3x
-        drug1: NA
-        drug2: NA
-        label: TDP43(F147L-F149L)-mTagBFP3x
-      A05:
-        dna1: TDP43(R151A)
-        dna2: mTagBFP3x
-        drug1: NA
-        drug2: NA
-        label: TDP43(R151A)-mTagBFP3x
       A06:
-        dna1: TDP43(D247A)
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(D247A)-mTagBFP3x
+        label: ''
       A07:
-        dna1: GFP
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: GFP-TDP(WT)-mTagBFP3x
+        label: ''
       A08:
-        dna1: TDP43(WT)
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(WT)-TDP(WT)-mTagBFP3x
+        label: ''
       A09:
-        dna1: TDP43(F147L-F149L)
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(F147L-F149L)-TDP(WT)-mTagBFP3x
+        label: ''
       A10:
-        dna1: TDP43(R151A)
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(R151A)-TDP(WT)-mTagBFP3x
+        label: ''
       A11:
-        dna1: TDP43(D247A)
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(D247A)-TDP(WT)-mTagBFP3x
+        label: ''
       A12:
         dna1: NA
         dna2: NA
@@ -199,65 +111,65 @@ experiment:
         drug2: NA
         label: ''
       B02:
-        dna1: GFP
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: GFP-mTagBFP3x
+        label: ''
       B03:
-        dna1: TDP43(WT)
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(WT)-mTagBFP3x
+        label: ''
       B04:
-        dna1: TDP43(F147L-F149L)
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(F147L-F149L)-mTagBFP3x
+        label: ''
       B05:
-        dna1: TDP43(R151A)
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(R151A)-mTagBFP3x
+        label: ''
       B06:
-        dna1: TDP43(D247A)
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(D247A)-mTagBFP3x
+        label: ''
       B07:
-        dna1: GFP
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: GFP-TDP(WT)-mTagBFP3x
+        label: ''
       B08:
-        dna1: TDP43(WT)
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(WT)-TDP(WT)-mTagBFP3x
+        label: ''
       B09:
-        dna1: TDP43(F147L-F149L)
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(F147L-F149L)-TDP(WT)-mTagBFP3x
+        label: ''
       B10:
-        dna1: TDP43(R151A)
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(R151A)-TDP(WT)-mTagBFP3x
+        label: ''
       B11:
-        dna1: TDP43(D247A)
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(D247A)-TDP(WT)-mTagBFP3x
+        label: ''
       B12:
         dna1: NA
         dna2: NA
@@ -271,65 +183,65 @@ experiment:
         drug2: NA
         label: ''
       C02:
-        dna1: GFP
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: GFP-mTagBFP3x
+        label: ''
       C03:
-        dna1: TDP43(WT)
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(WT)-mTagBFP3x
+        label: ''
       C04:
-        dna1: TDP43(F147L-F149L)
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(F147L-F149L)-mTagBFP3x
+        label: ''
       C05:
-        dna1: TDP43(R151A)
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(R151A)-mTagBFP3x
+        label: ''
       C06:
-        dna1: TDP43(D247A)
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(D247A)-mTagBFP3x
+        label: ''
       C07:
-        dna1: GFP
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: GFP-TDP(WT)-mTagBFP3x
+        label: ''
       C08:
-        dna1: TDP43(WT)
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(WT)-TDP(WT)-mTagBFP3x
+        label: ''
       C09:
-        dna1: TDP43(F147L-F149L)
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(F147L-F149L)-TDP(WT)-mTagBFP3x
+        label: ''
       C10:
-        dna1: TDP43(R151A)
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(R151A)-TDP(WT)-mTagBFP3x
+        label: ''
       C11:
-        dna1: TDP43(D247A)
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(D247A)-TDP(WT)-mTagBFP3x
+        label: ''
       C12:
         dna1: NA
         dna2: NA
@@ -343,65 +255,65 @@ experiment:
         drug2: NA
         label: ''
       D02:
-        dna1: GFP
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: GFP-mTagBFP3x
+        label: ''
       D03:
-        dna1: TDP43(WT)
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(WT)-mTagBFP3x
+        label: ''
       D04:
-        dna1: TDP43(F147L-F149L)
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(F147L-F149L)-mTagBFP3x
+        label: ''
       D05:
-        dna1: TDP43(R151A)
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(R151A)-mTagBFP3x
+        label: ''
       D06:
-        dna1: TDP43(D247A)
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(D247A)-mTagBFP3x
+        label: ''
       D07:
-        dna1: GFP
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: GFP-TDP(WT)-mTagBFP3x
+        label: ''
       D08:
-        dna1: TDP43(WT)
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(WT)-TDP(WT)-mTagBFP3x
+        label: ''
       D09:
-        dna1: TDP43(F147L-F149L)
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(F147L-F149L)-TDP(WT)-mTagBFP3x
+        label: ''
       D10:
-        dna1: TDP43(R151A)
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(R151A)-TDP(WT)-mTagBFP3x
+        label: ''
       D11:
-        dna1: TDP43(D247A)
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(D247A)-TDP(WT)-mTagBFP3x
+        label: ''
       D12:
         dna1: NA
         dna2: NA
@@ -415,65 +327,65 @@ experiment:
         drug2: NA
         label: ''
       E02:
-        dna1: GFP
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: GFP-mTagBFP3x
+        label: ''
       E03:
-        dna1: TDP43(WT)
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(WT)-mTagBFP3x
+        label: ''
       E04:
-        dna1: TDP43(F147L-F149L)
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(F147L-F149L)-mTagBFP3x
+        label: ''
       E05:
-        dna1: TDP43(R151A)
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(R151A)-mTagBFP3x
+        label: ''
       E06:
-        dna1: TDP43(D247A)
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(D247A)-mTagBFP3x
+        label: ''
       E07:
-        dna1: GFP
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: GFP-TDP(WT)-mTagBFP3x
+        label: ''
       E08:
-        dna1: TDP43(WT)
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(WT)-TDP(WT)-mTagBFP3x
+        label: ''
       E09:
-        dna1: TDP43(F147L-F149L)
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(F147L-F149L)-TDP(WT)-mTagBFP3x
+        label: ''
       E10:
-        dna1: TDP43(R151A)
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(R151A)-TDP(WT)-mTagBFP3x
+        label: ''
       E11:
-        dna1: TDP43(D247A)
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(D247A)-TDP(WT)-mTagBFP3x
+        label: ''
       E12:
         dna1: NA
         dna2: NA
@@ -487,65 +399,65 @@ experiment:
         drug2: NA
         label: ''
       F02:
-        dna1: GFP
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: GFP-mTagBFP3x
+        label: ''
       F03:
-        dna1: TDP43(WT)
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(WT)-mTagBFP3x
+        label: ''
       F04:
-        dna1: TDP43(F147L-F149L)
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(F147L-F149L)-mTagBFP3x
+        label: ''
       F05:
-        dna1: TDP43(R151A)
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(R151A)-mTagBFP3x
+        label: ''
       F06:
-        dna1: TDP43(D247A)
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(D247A)-mTagBFP3x
+        label: ''
       F07:
-        dna1: GFP
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: GFP-TDP(WT)-mTagBFP3x
+        label: ''
       F08:
-        dna1: TDP43(WT)
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(WT)-TDP(WT)-mTagBFP3x
+        label: ''
       F09:
-        dna1: TDP43(F147L-F149L)
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(F147L-F149L)-TDP(WT)-mTagBFP3x
+        label: ''
       F10:
-        dna1: TDP43(R151A)
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(R151A)-TDP(WT)-mTagBFP3x
+        label: ''
       F11:
-        dna1: TDP43(D247A)
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(D247A)-TDP(WT)-mTagBFP3x
+        label: ''
       F12:
         dna1: NA
         dna2: NA
@@ -559,65 +471,65 @@ experiment:
         drug2: NA
         label: ''
       G02:
-        dna1: GFP
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: GFP-mTagBFP3x
+        label: ''
       G03:
-        dna1: TDP43(WT)
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(WT)-mTagBFP3x
+        label: ''
       G04:
-        dna1: TDP43(F147L-F149L)
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(F147L-F149L)-mTagBFP3x
+        label: ''
       G05:
-        dna1: TDP43(R151A)
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(R151A)-mTagBFP3x
+        label: ''
       G06:
-        dna1: TDP43(D247A)
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(D247A)-mTagBFP3x
+        label: ''
       G07:
-        dna1: GFP
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: GFP-TDP(WT)-mTagBFP3x
+        label: ''
       G08:
-        dna1: TDP43(WT)
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(WT)-TDP(WT)-mTagBFP3x
+        label: ''
       G09:
-        dna1: TDP43(F147L-F149L)
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(F147L-F149L)-TDP(WT)-mTagBFP3x
+        label: ''
       G10:
-        dna1: TDP43(R151A)
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(R151A)-TDP(WT)-mTagBFP3x
+        label: ''
       G11:
-        dna1: TDP43(D247A)
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(D247A)-TDP(WT)-mTagBFP3x
+        label: ''
       G12:
         dna1: NA
         dna2: NA
@@ -631,65 +543,65 @@ experiment:
         drug2: NA
         label: ''
       H02:
-        dna1: GFP
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: GFP-mTagBFP3x
+        label: ''
       H03:
-        dna1: TDP43(WT)
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(WT)-mTagBFP3x
+        label: ''
       H04:
-        dna1: TDP43(F147L-F149L)
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(F147L-F149L)-mTagBFP3x
+        label: ''
       H05:
-        dna1: TDP43(R151A)
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(R151A)-mTagBFP3x
+        label: ''
       H06:
-        dna1: TDP43(D247A)
-        dna2: mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(D247A)-mTagBFP3x
+        label: ''
       H07:
-        dna1: GFP
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: GFP-TDP(WT)-mTagBFP3x
+        label: ''
       H08:
-        dna1: TDP43(WT)
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(WT)-TDP(WT)-mTagBFP3x
+        label: ''
       H09:
-        dna1: TDP43(F147L-F149L)
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(F147L-F149L)-TDP(WT)-mTagBFP3x
+        label: ''
       H10:
-        dna1: TDP43(R151A)
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(R151A)-TDP(WT)-mTagBFP3x
+        label: ''
       H11:
-        dna1: TDP43(D247A)
-        dna2: TDP(WT)-mTagBFP3x
+        dna1: NA
+        dna2: NA
         drug1: NA
         drug2: NA
-        label: TDP43(D247A)-TDP(WT)-mTagBFP3x
+        label: ''
       H12:
         dna1: NA
         dna2: NA
