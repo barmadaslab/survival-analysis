@@ -38,4 +38,6 @@ Below are version numbers last used for ensuring functionality.
 5. Skimage 0.13.0
 6. Yaml 3.12
 7. OpenCV 3.3.0
-8. [Rscript](https://www.rdocumentation.org/packages/utils/versions/3.6.1/topics/Rscript) 3.3.2 (not a Python module, but a means to access R via the command line)
+8. Multiprocess 0.70.5
+9. [Rscript](https://www.rdocumentation.org/packages/utils/versions/3.6.1/topics/Rscript) 3.3.2 (not a Python module, but a means to access R via the command line)
+10. [R package: survival](https://cran.r-project.org/web/packages/survival/index.html)
